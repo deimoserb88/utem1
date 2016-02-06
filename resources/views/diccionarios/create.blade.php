@@ -2,22 +2,18 @@
 
 @section('content')
 
-
-<h1>Registrar Diccionarios</h1>
-
+<div class="panel panel-info">
+	<div class="panel panel-heading">
+		Registrar Diccionarios
+	</div>
+	<div class="panel-body">
 	{!! Form::open(['route'=>'diccionarios.store']) !!}
 
-            <p>Aqui se verá el formulario</p>
-             
-            <div class="form-group">
-                {!! Form::button('Aceptar', ['type'=>'submit','class'=>'btn btn-primary']) !!}
-            </div>
-		
-			@include('diccionarios.partials.form')
-            
+		@include('diccionarios.partials.form')
 		
 	{!! Form::close() !!}
-
+	</div>
+</div>
 @endsection
 
 

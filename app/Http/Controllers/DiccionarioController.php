@@ -3,9 +3,13 @@
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Diccionario;
+use App\Http\Requests\CreateDiccionarioRequest;
+
 use Illuminate\Http\Request;
 
 class DiccionarioController extends Controller {
+
+
 
 	/**
 	 * Display a listing of the resource.
@@ -14,7 +18,9 @@ class DiccionarioController extends Controller {
 	 */
 	public function index()
 	{
-		//
+		$diccionarios = Diccionario::orderBy('nombre','asc')->paginate();
+
+		return view('diccionarios.index',compact('diccionarios'));
 	}
 
 	/**
@@ -32,9 +38,11 @@ class DiccionarioController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(CreateDiccionarioRequest $request)
 	{
-		//
+		$diccionarios = Diccionario::create($request->all());
+
+		return view('home');
 	}
 
 	/**
